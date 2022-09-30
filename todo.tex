@@ -1,0 +1,79 @@
+\section{Further work following progression}
+\protect\label{section:worktocome}
+
+The following is the programme of work I need to undertake in order to regard
+the project as complete.
+
+In a lot of cases, the work already done will need revisiting and refining and
+``iterating until convergence'' achieved.
+
+I see the following as necessary, not in any particular order.
+
+\begin{enumerate}
+  \item Better handle bad or unreliable pixels identifying ones prone to
+  ``spikes'' and bouts of insensitivity and improving the interpolation over
+  them. Where they land on an object, it would be better to interpolate using
+  any fitted Gaussian profile.
+  \item Optimise as many as possible of the reference object apertures and
+  identify irregularly shaped and variable objects.
+  \item Look at other filters, such as the \gfilter, possibly the other filters,
+  although the number of available reference objects looks poor and the
+  {\zfilter} images all have artefacts in them.
+  \item Repeat the work done for {\ross} with {\prox} and {\bstar} and consider
+  periodograms for them.
+  \item Extend the work done to date to the REMIR near infrared images.
+\end{enumerate}
+
+\section{Accuracy}
+\protect\label{section:accuracy}
+
+It seemed worth looking at whether any adjustments of the exposure times might
+improve the accuracy, as many of the objects which might be used for reference
+give an ADU count only just above the sky level. The exposure times currently
+are 10 seconds for {\prox} and {\ross} and 5 seconds for \bstar.
+
+Table \ref{table:pixvals} is set out the maximum value in any of the observation
+files for each target and each filter and the percentage of observation files in
+which at least one pixel exceeds a give number of ADUs (this does not currently
+take account of defective pixels or cosmics, but these would have negligible
+effects on the results).
+
+It is clear that some increase in exposure time, possibly up to 5 times or more
+in the case of the \gfilter, would benefit the contrast, except
+for the {\ifilter} results, which are generally too close to saturation.
+The nature of the instrument, however, may not permit any different exposure
+times to be made with different filters.
+
+\begin{table}[!htbp]
+\begin{center}
+\begin{tabular}{|l|r|rrrr|} \hline
+Filter & Max value & \% over 30,000 & \% over 40,000 & \% over 50,000 & \% over
+60,000 \\\hline
+ \multicolumn{6}{|c|}{\textbf{\bstar} exp 5 sec} \\\hline
+\texttt{g} & 63,422 & 0.05 & 0.05 & 0.05 & 0.05 \\
+\texttt{i} & 63,448 & 78.94 & 61.15 & 45.71 & 0.77 \\
+\texttt{r} & 54,806 & 16.68 & 3.73 & 0.97 & 0.00 \\
+\texttt{z} & 63,387 & 12.52 & 3.37 & 0.87 & 0.05 \\
+\hline
+\multicolumn{6}{|c|}{\textbf{\prox} exp 10 sec} \\\hline
+\texttt{g} & 63,466 & 0.38 & 0.30 & 0.25 & 0.18 \\
+\texttt{i} & 63,457 & 74.15 & 52.88 & 36.84 & 4.03 \\
+\texttt{r} & 63,425 & 0.60 & 0.10 & 0.09 & 0.08 \\
+\texttt{z} & 63,456 & 25.38 & 11.64 & 5.47 & 0.16 \\
+\hline
+\multicolumn{6}{|c|}{\textbf{Ross 154} exp 10 sec} \\\hline
+\texttt{g} & 63,453 & 0.41 & 0.35 & 0.28 & 0.22 \\
+\texttt{i} & 63,452 & 76.71 & 57.35 & 39.25 & 2.16 \\
+\texttt{r} & 63,268 & 7.99 & 2.38 & 0.93 & 0.11 \\
+\texttt{z} & 63,447 & 8.33 & 2.14 & 0.45 & 0.04 \\
+\hline
+\hline
+\end{tabular}
+\end{center}
+\caption{This figures shows the maximum ADU values of any pixel in any of the
+observation files for each of the 3 {\rdwarf} targets for each filter. The
+following columns show the percentage of pixels in each case which are above
+30,000, 40,000, 50,000 and 60,000.}.
+\protect\label{table:pixvals}
+\end{table}
+\clearpage
