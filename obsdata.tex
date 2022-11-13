@@ -43,8 +43,8 @@ The ROSS2 image files are stored with as 1024x1024 images, however the area of
 the images is less than this as illustrated in Fig. \ref{fig:showusedccd}, the
 upper and rightmost parts of the images are filled with zeros to make up to 1024
 rows or columns. In all processing herein, the images are trimmed to the
-appropriate size to avoid unnecessary computations with rows and columns of
-zeros.
+appropriate size to avoid unnecessary (and in some cases invalid) computations
+with rows and columns of zeros.
 
 \subsection{Initial analysis of data}
 \protect\label{section:initialanalysis}
@@ -56,13 +56,14 @@ $ \frac{(mage - bias) \times mf}{flat - bias}$
 \end{center}
 
 In this $mf$ represents to mean value of the flat pixels. The master flat files
-provided already have the bias subtracted.
+provided already have the relevant master bias subtracted.
 
 \subsubsection{Some example image displays}
 \protect\label{section:eximages}
 
 In Fig. \ref{fig:initgexample} is illustrated a sample image from one of the
-observations of {\bstar} using the {\gfilter}. In Fig.
+observations of {\bstar} using the {\gfilter} and using the supplied master
+bias and flat files. In Fig.
 \ref{fig:initgexample20} is shown a similar observation from March 2020. Note
 how the second image is rotated clockwise by 90\degree{} from the previous image
 and includes a different set of other objects for potential reference stars.
@@ -87,7 +88,9 @@ green is \bstar, whilst the next 9 brightest objects are marked in yellow and
 7 March 2020 at 09:07:23 UTC after processing using the master bias and
 flat files for March 2020. The brightest object, marked \textbf{A} and marked in
 green is \bstar, whilst the next 9 brightest objects are marked in yellow and
-\textbf{B}, \textbf{C}, etc. in decreasing order of brightness.}
+\textbf{B}, \textbf{C}, etc. in decreasing order of brightness. It may be
+noted that some of the objects, at this stage, prior to more detailed analysis
+of the other objects, are not marked consistently with those in Fig. \ref{fig:initgexample}.}
 \protect\label{fig:initgexample20}
 \end{figure}
 
@@ -145,6 +148,8 @@ The following issues were apparent in the analysis of the data.
 \end{enumerate}
 
 As a result, it proved advisable to avoid the {\zfilter} as it would not
-be practical to try to compensate for the artefact given the likely poor return
-if this were done.
-
+be practical to try to compensate for the artefacts given the likely poor return
+if this were done. The target {\rdwarf} objects are invariably very much
+brighter than any of the possible reference objects for this (and also for the
+\ifilter) and any extensive effort to eliminate the artefacts would not appear
+worthwhile.

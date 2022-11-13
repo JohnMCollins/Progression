@@ -1,0 +1,1 @@
+REMGEOMFMT=Report disp_pms.py --out images/pmprox.png  --apsize 30 --rarange 0.03 --decrange 0.01 --yrot 45 GJ551
