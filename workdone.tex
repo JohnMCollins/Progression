@@ -7,53 +7,72 @@ The following outlines the work done to date.
 \protect\label{section:softwaretools}
 
 In order to manage the large number of files, I set up a database using MySQL
-and a Python library and tool set to access this conveniently. The
-\textit{Numpy}, \textit{Scipy} and \textit{Matplotlib} libraries were used
-extensively. For some GUI tools, I used \textit{PyQt}. I also created an image
-display tool which can display images and optionally save the images displayed
-to file ready for incorporation in reports and papers such as this.
+and a Python library and tool set to access this conveniently. The database is
+used to to manage records of each observation, the daily flat and bias files
+taken, records of objects in the vicinity of each target with relevant data,
+where objects were found in the images and ADU calculation results with
+uncertainties. Most relevant FITS files are stored in the database but the
+toolset created transparently fetches other FITS files as required.
 
-\subsubsection{Database and tools}
-\protect\label{seciion:databaseandtools}
+\subsubsection{Display and analysis tools}
+\protect\label{section:displayanaltools}
 
-I set up a database and created a Python toolset to manage records of
-each observation, the daily flat and bias files taken, records of objects in the vicinity of each target with
-relevant data, where objects were found in the images and ADU calculation
-results with uncertainties. Most relevant FITS files are stored in the database
-but the toolset created transparently fetches other FITS files as required.
+The contrast on the images is poor and I was unable to obtain any useful
+photometry from standard image analysis software. I worked mainly with 
+\textit{AstroImageJ} from which Fig. \ref{fig:aijimage} is derived. The
+corresponding image from the software I developed is in Fig.
+\ref{fig:myimage}.\footnote{I also tried \textit{AperturePT} before it ceased to
+be usable on the Linux platform I was using, \textit{DS9} and the GAIA tool.}
 
-The toolset includes graphical tools to manage system parameters including
-search criteria. In particular observation files, flat and bias records can be
-selected using given criteria.
+The only way it appeared possible to proceed was to write my own display and
+analysis software, from which the figures shown herein were derived. This finely
+divides ADU counts into 16 different greyscales (with provision to increase
+this to up to 32 greyscales). Pixels are assigned a given greyscale based upon
+whether they fall within one of a set of percentiles.
 
-\subsubsection{Graphical display}
-\protect\label{section:graphicdisplay}
-
-The contrast on many of the images is poor and some of the standard image
-display software, such \textit{AperturePT} and \textit{AstroImageJ} struggled
-with several images. I wrote to the author of \textit{AperturePT} attaching some
-of the images and he commented on the poor contrast.
-
-I wrote a GUI program using \textit{PyQt} which enabled me to choose the
-combination of grey scales which best highlighted the images. If an image is
-loaded by the program, the effects can be seen in real time on the image. An
-example of the dialog boxes is shown in Fig. \ref{fig:geditorshot}.
+With only a handful of the images could I make \textit{AstroImageJ} find the
+target and after that only a handful of other objects, those having set the maximum
+difference in flux to be 10,000\% or more of the brightest objects using the
+menus. When the objects were found, the ADU counts were comparable, well within
+the same order of magnitude with the ones detected by my software.
 
 \begin{figure}[!htbp]
 \begin{center}
-\includegraphics[scale=0.4]{images/geditorshot.png}
-\end{center}   
-\caption{This illustrates one of the dialogs from the graphical display editor
-showing how the grey scales are tuned. Grey scales are assigned using
-percentiles of the ADU values (default) by number of standard deviations or
-absolute value. The values used are as shown in the figures. If an images is
-loaded the other boxes are filled in to show the values from the current image
-and updated, along with the figure displayed to show the effect on the image.
-The results are saved in a configuration file for future use.}
-\protect\label{fig:geditorshot}
+\includegraphics[scale=0.40]{images/AIJsnap.png} \\
+\vspace{-.5cm}
+\end{center}
+\caption{This shows the display in \textit{AstroImageJ} of the observation of
+{\ross} at 02:04:10 on 31 October 2021 in the \texttt{r} filter. The three
+brightest objects together with the target gave been highlighted. However the
+software was not able to find the objects on the image for this observation.}
+\protect\label{fig:aijimage}
 \end{figure}
 
-\subsection{Analysis of supplied master calibration files}
+\begin{figure}[!htbp]
+\begin{center}
+\includegraphics[scale=0.80]{images/myimage.png} \\
+\vspace{-.5cm}
+\end{center}
+\caption{This shows the same display as Fig. \ref{fig:aijimage}, namely of
+{\ross} at 02:04:10 on 31 October 2021 in the \texttt{r} filter using my
+toolset with the first 50 brightest objects highlighted out of a total of 274
+found. Note that only the brightest 52 objects on average across all of the
+images, including \ross, which is labelled \textbf{A}, have currently had
+apertures optimised, these 52 objects are labelled \textbf{A} to \textbf{Z}
+and then \textbf{A1} to \textbf{Z1}, lower case labels show objects not
+specifically identified.}
+\protect\label{fig:myimage}
+\end{figure}
+
+It proved that most of the objects found in the GAIA database and other sources
+and with details copied across, nearly 60\%, had average of less than 1000 ADU
+counts above the sky level of $50 \pm 10$ ADU counts. Only 0.5\% of the objects,
+approximately 9 in total for the best {\ross} images, slightly more for \prox,
+slightly less for \bstar, had ADU counts of 100 times the sky level and of those
+few frames had all of these due to differing areas of the sky being covered by
+different frames.
+
+\subsection{Master calibration files}
 \protect\label{section:masterbiasflat}
 
 In order to address the matters such as those referred to in Section
@@ -66,39 +85,34 @@ The following problems were observed with these files.
   \item The number of daily bias or flat files going to make up the master files
   is not consistent, month by month. Each master file is made up entirely from
   the daily files for the calendar month concerned, which may vary considerably
-  in number and criteria for selection. In Fig. \ref{fig:mastmeanbias} is shown
-  the mean value and standard deviation of the master bias files up to March
-  2020, showing the net effect.
+  in number and criteria for selection.
   \item Some of the criteria for selection of the files, particularly the flat
   files, are unusual and unexplained.\footnote{The selection of the daily flat
   files is restricted to those for which the skewness is negative and the
   kurtosis is less than 7.}
   \item Some of the statistics for selection of daily files, notably the flat
-  files are incorrectly calculated.\footnote{It did not seem a productive use of
-  time to reproduce the programming error and work out the actual but incorrect
+  files, are incorrectly calculated and/or stated.\footnote{It did not seem a
+  productive use of time to reproduce the programming error and work out the actual but incorrect
   set of daily flat files which went to make up the master flat files.}
-  \item The master bias files, as constructed, include some extreme values for
+  \item The master bias files, as constructed, include extreme values for
   some pixels which cause values for the image files to go negative when the
   bias file is subtracted. No account is taken of noisy or unreliable pixels.
   \item The daily flat files consist of sets of 3 in decreasing light and the
   median value is taken, the result being then normalised. This causes the
-  benefit of the brighter flat files, with their better signal to noise ratio to
-  be ignored in addition to the other ones.
+  benefit of the brighter flat files, with their better signal to noise ratio,
+  to be ignored in addition to the other ones.
 \end{enumerate}
 
-\begin{figure}[!htbp]
-\begin{center}
-\includegraphics[scale=0.4]{images/mastmeanbias.png}
-\end{center}   
-\caption{This illustrates the mean and the standard deviation of the values in
-the master bias files from July 2017, when {\rdwarf} targets were first
-observed, until March 2020.}
-\protect\label{fig:mastmeanbias}
-\end{figure}
+% \begin{figure}[!htbp]
+% \begin{center}
+% \includegraphics[scale=0.4]{images/mastmeanbias.png}
+% \end{center}
+% \caption{This illustrates the mean and the standard deviation of the values in
+% the master bias files from July 2017, when {\rdwarf} targets were first
+% observed, until March 2020.}
+% \protect\label{fig:mastmeanbias}
+% \end{figure}
 \clearpage
-
-\subsection{Construction of alternative master bias and flat files}
-\protect\label{section:altcalib}
 
 Having considered and tried to use the supplied master bias and flat files, I
 decided to construct alternative ones from the daily bias and flat files
@@ -107,8 +121,8 @@ provided.
 A key element in this was to construct the files using a rolling ``window'' of
 the same number of daily files centred on the relevant date. This made a
 substantial difference to the resulting master files, all of the variations
-seen in Fig. \ref{fig:mastmeanbias} from month to month were eliminated and the
-resulting files were very similar.
+% seen in Fig. \ref{fig:mastmeanbias}
+from month to month were eliminated and the resulting files were very similar.
 
 \subsubsection{Defective or unreliable pixels}
 \protect\label{section:badpix}
@@ -146,7 +160,7 @@ response within 10\% of saturation.
 \item[Consistently high] pixels are those which whose count never falls below a
 value significantly higher than bulk of the pixels. These are often found in
 whole sections of a column on an array.
-\item[Noisy] pixels are closest to \textbf{Dead} pixels as defined in 
+\item[Noisy] pixels are closest to \textbf{Dead} pixels as defined in
 \citet{maslennikova20}. Included are those with consistent high levels of noise,
 with the standard deviation on the bias level over 5 times the standard
 deviation.
@@ -162,31 +176,37 @@ correspond to the \textbf{noisy} pixels.
 There are very few examples, in the order of 25 pixels spread over the used area
 of the array, which qualify as \textbf{bad}.
 
-It is straightforward to interpolate over the relevant pixels. There are a few places where there are strings of
-adjacent noisy or consistently high pixels, but these almost entirely affect
-columns in the CCD, the worst example can be found in the area used for the \gfilter, seemingly as
-the CCD is read out by columns, so adjacent pixels on the same row have to be
-used for interpolation.
+It is straightforward to interpolate over the relevant pixels. There are a few
+places where there are strings of adjacent noisy or consistently high pixels,
+but these almost entirely affect columns in the CCD, the worst example can be
+found in the area used for the \gfilter, seemingly as the CCD is read out by
+columns, so adjacent pixels on the same row have to be used for interpolation.
 
 \subsubsection{New master flat and bias files}
 \protect\label{section:newmastfb}
 
 With appropriate adjustments for the defective pixels as described above, it
 proved straightforward to construct new master bias files using a  ``rolling
-window'' centred on the date required. I constructed standard deviations for each individual pixel.
+window'' centred on the date required. I constructed standard deviations for
+each individual pixel, so each master bias and flat file consists of two planes,
+one giving values for each pixel and the second giving the standard deviations.
+These are combined where appropriate using the rules for combination of errors.
 
-I made an extensive study of the linearity using the daily flat
-files; it would  appear than the performance is linear up to 62,000 counts per
-pixel out of a possible 65,536. I constructed the master
-flat files using daily files with pixels between a range of 5,000 and 61,000 to be clear of this linearity cut-off.
+I made an extensive study of the linearity using the daily flat files; it would 
+appear than the performance is linear up to 62,000 counts per pixel out of a
+possible 65,536. I constructed the master flat files using daily files with
+pixels between a range of 5,000 and 61,000 to be clear of this linearity
+cut-off.
 None of the image files, other than ones contaminated by cosmics and similar,
 had pixel values close to 60,000. I did not use the skewness or kurtosis
 measurements used in the construction of the original master flat files as this
 did not seem to have any benefit\footnote{Even if they were correctly
-calculated.}. I then subtracted from the selected daily flat files
-the newly-constructed master bias file centred on the relevant date and normalised the result.
-I then combined the results into a master flat file for the relevant date using a weighted geometric mean,
-the weights being inversely proportional to the standard deviations.
+calculated.}. I then subtracted from the selected daily flat files the
+newly-constructed master bias file centred on the relevant date and normalised
+the result.
+I then combined the results into a master flat file for the relevant date using
+a weighted geometric mean, the weights being inversely proportional to the
+standard deviations.
 
 This resulted in a much more satisfactory set of master bias and flat files and
 it was possible to much more confident of the uncertainty of values on a
@@ -211,33 +231,63 @@ as variable.
 
 The magnitudes in various bands are all noted in the database records, but these
 were mainly used as a guideline where there was ambiguity in distinguishing
-close but not overlapping objects. It proved better to explicitly count the ADUs
-after adjusting the aperture sizes.
+close but not overlapping objects. Aperture sizes were calculated by fitting a
+Gaussian to approximate the PSF and taking the mean over the dataset of
+acceptable images. This works better with some frames, such as in Fig.
+\ref{fig:goodfit}, then others, such as Fig. \ref{fig:badfit}.
+
+\begin{figure}[!htbp]
+\begin{center}
+\includegraphics[scale=0.40]{images/goodfit.png} \\
+\vspace{-.5cm}
+\end{center}
+\caption{This shows the profile and the fitted
+Gaussian for the observation of {\ross} taken on 26
+April 2019 at 08:54:03 with the \texttt{r} filter. The right
+hand image shows the differences between this and
+the actual flux, positive values in green and
+negative in red. Air mass for this was 1.0085.}
+\protect\label{fig:goodfit}
+\end{figure}
+
+\begin{figure}[!htbp]
+\begin{center}
+\includegraphics[scale=0.90]{images/badfit.png} \\
+\vspace{-.5cm}
+\end{center}
+\caption{This shows the profile and the fitted
+Gaussian for the observation of {\ross} taken on 16
+September 2019 at 03:39:47 with the \texttt{r} filter. The right
+hand image shows the differences between this and
+the actual flux, positive values in green and
+negative in red. Air mass for this was 1.5665.}
+\protect\label{fig:badfit}
+\end{figure}
 
 There remains considerable work in finalising the optimal aperture sizes for
-each objects, particularly with {\prox} and {\bstar}.
+each objects, particularly with {\prox} and {\bstar}. It may be necessary to
+calculate them individually for each frame, especially for the fainter objects.
 
 The best frames contain up to 200 possible reference stars for the best
 examples, more for {\prox} and less for {\bstar}. Average frames contain up to
-30 or so. Any less than 10 are rejected as too poor in contrast, but the total of rejected frames is less than
-10\%.\footnote{This figure is subject to amendment, currently the rejection is
-binary, but there is provision for a ``quality'' marker enabling frames to be
-partially used where appropriate.}
+30 or so. Any with less than 30 are rejected as too poor.\footnote{This figure
+is subject to amendment, currently the rejection is binary, but there is
+provision for a ``quality'' marker enabling frames to be partially used where appropriate.}
 
 \subsection{Calibration of reference stars and ADU counts}
 \protect\label{section:calibrationrefstars}
 
-Not all the frames contain the same reference stars, or have the same
-orientation, some are rotated by 90\degree or 180\degree relative to others. The
+As previously noted, not all the frames contain the same reference stars, or
+have the same orientation, some are rotated by 90\degree or 180\degree relative to others. The
 target object may be off-centre by varying amounts and in varying directions and
 different reference objects appear in different frames, or are too close to the
 edge in some cases, where vignetting or similar reduces the accuracy, to be
-usable. Only quite a small handful of objects appear in all the frames.
+usable. Only a small handful (single figures) of brighter objects appear in
+nearly all the frames and none, other than the target, appear in all of the
+frames.
 
 After some experimentation with strategies for computing and calibration of the
-objects, the most promising strategy emerged as being for each filter
-(initially this was only done with the {\rfilter} images, being the least
-problematic).
+objects, the most promising strategy emerged as being for each filter.
 
 \begin{enumerate}
   \item Compute the ADU count and standard deviation for each object in each
@@ -254,7 +304,10 @@ problematic).
 
 This technique proved very successful, in most cases the correlation of the
 linear regression was better than 95\%, and proved insensitive to what set of
-reference stars were available on a particular frame.
+reference stars were available on a particular frame. However, as the targets
+are very much brighter, by a factor of 100 or more, than the majority of the
+reference stars, this linear regression technique involves a considerable
+extrapolation to arrive at a calibrated ADU count for the targets.
 
 \subsection{Results for \ross}
 \protect\label{section:resultsross}
@@ -273,30 +326,112 @@ This confirms that there is viability in the methods used in terms of recovering
 the rotation period for \ross. More challenging may be that for \bstar, where
 the number of observations is less and also the number of reference objects.
 
-\subsection{Set up of pipeline}
-\protect\label{section:pipeline}
+\subsection{Problems with light curves for \ross}
+\protect\label{secion:rossprobs}
 
-A daily routine was set up to interrogate the {\rem} results and load new data
-into the database. The steps were:
+There appears to be a problem with many of the observations for \ross, in that
+there are huge swings seem to be observable in the calibrated flux within the course of a
+few minutes. This is illustrated in the light curve shown in the draft paper
+reproduced in Fig. \ref{fig:rossallcurve}. An example of the wildest set of
+swings is seen in the September 2019 period, and a particularly wild set of
+readings was observed on 13 September 2019. The total flux for {\ross} and the
+two next brightest objects for that day is shown in Fig. \ref{fig:2019sept13}
 
-\begin{enumerate}
-  \item Load information about new observations into the database. This is just
-  a simple record of information.
-  \item Load FITS files corresponding to the ROSS2 observations of the target
-  objects into the database cache.
-  \item For loaded FITS files, add data about statistics such as maximum and
-  minimum pixel values, mean and standard deviations into the database.
-  \item For database rows corresponding to the targets, compute the barycentric
-  dates and add to the database.
-  \item Identify the target and other objects in the frames and add locations to
-  the database. Mark frame as too poor to use if the target is not found, and
-  less than a given number of reference objects, currently 10, are not found.
-  \item Load FITS files corresponding to daily flat and bias files into the
-  database.
-  \item Load any new master bias and flat files (although these are no longer
-  used).
-\end{enumerate}
+\begin{figure}[!htbp]
+\begin{center}
+\includegraphics[scale=0.40]{images/remrossallcurve.png} \\
+\vspace{-.5cm}
+\end{center}
+\caption{This shows the total flux after calibration from {\ross}
+found in all acceptable images in {\rem}
+observations, normalised so that the mean is 1.0. There was a change in
+configuration in late March 2019, indicated by the sold vertical green line, but
+this occurred 595 days from the start and thus does
+not account for any of the shape of the plot
+shown. The dotted vertical lines indicate the
+start of the years 2018 through to 2022.}\protect\label{fig:rossallcurve}
+\end{figure}
 
-The calculation of ADUs for objects is currently done manually when ready, but
-ultimately this will be added to the pipeline. Currently the daily job takes
-about 40 minutes to run.
+\begin{figure}[!htbp]
+\begin{center}
+\includegraphics[scale=0.40]{images/all130919.png} \\
+\end{center}
+\caption{This shows the total flux, with no attempt to calibrate, for {\ross}
+and the next two brightest objects visible on 13 September 2019. In this figure
+A represents \ross, whilst F and D represent TIC~224752356 and
+Gaia~DR3~4075153519816173184 respectively.}\protect\label{fig:2019sept13}
+\end{figure}
+
+Observable is the huge jump over the course of about 2 minutes between the
+fifth and sixth point on this figure. The flux for {\ross} drops by a quarter in
+this time.
+
+Display of the images for the fifth and sixth point on this figure is given in
+Fig. \ref{fig:fig5} and Fig. \ref{fig:fig6} respectively. It may be seen that
+the sky level has increased by a factor of 3 whilst the maximum flux has reduced
+by a about a third. This causes the contrast to be much poorer, with much less
+detail.
+
+Concerns about the overall swings are alleviated somewhat, when it seen that
+similar swings are observable in observations of {\ross} from other sources, as
+shown in Fig. \ref{fig:allsourcelcurve}
+
+\begin{figure}[!htbp]
+\begin{center}
+\includegraphics[scale=0.40]{images/fig005.png} \\
+\end{center}
+\caption{This shows the image for {\ross} on 13
+Sept 2019 at 02:51:43 with the 6 strongest sources
+identified and labelled,}\protect\label{fig:fig5}
+\end{figure}
+
+\begin{figure}[!htbp]
+\begin{center}
+\includegraphics[scale=0.40]{images/fig006.png} \\
+\end{center}
+\caption{This shows the image for {\ross} on 13
+Sept 2019 at 02:53:51 with the 6 strongest sources
+identified and labelled,}\protect\label{fig:fig6}
+\end{figure}
+
+\begin{figure}[!htbp]
+\begin{center}
+\includegraphics[scale=0.60]{images/comparison.png} \\
+\vspace{-.5cm}
+\end{center}   
+\caption{This figure shows combined data
+from ASAS, K2, MEarth and REM, specifically for the \texttt{r} filter,
+as blue, green, red and black respectively with the intensity in each normalised
+to a mean of 1, i.e. on the same scale, and showing the dates on which each was
+taken. The {\rem} light curve is after
+calibration by comparison with other objects
+in each frame.}\protect\label{fig:allsourcelcurve}
+\end{figure}
+\clearpage
+% \subsection{Set up of pipeline}
+% \protect\label{section:pipeline}
+%
+% A daily routine was set up to interrogate the {\rem} results and load new data
+% into the database. The steps were:
+%
+% \begin{enumerate}
+%   \item Load information about new observations into the database. This is just
+%   a simple record of information.
+%   \item Load FITS files corresponding to the ROSS2 observations of the target
+%   objects into the database cache.
+%   \item For loaded FITS files, add data about statistics such as maximum and
+%   minimum pixel values, mean and standard deviations into the database.
+%   \item For database rows corresponding to the targets, compute the barycentric
+%   dates and add to the database.
+%   \item Identify the target and other objects in the frames and add locations to
+%   the database. Mark frame as too poor to use if the target is not found, and
+%   less than a given number of reference objects, currently 10, are not found.
+%   \item Load FITS files corresponding to daily flat and bias files into the
+%   database.
+%   \item Load any new master bias and flat files (although these are no longer
+%   used).
+% \end{enumerate}
+%
+% The calculation of ADUs for objects is currently done manually when ready, but
+% ultimately this will be added to the pipeline. Currently the daily job takes
+% about 40 minutes to run.
