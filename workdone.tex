@@ -32,7 +32,7 @@ whether they fall within one of a set of percentiles.
 
 With only a handful of the images could I make \textit{AstroImageJ} find the
 target and after that only a handful of other objects, those having set the maximum
-difference in flux to be 10,000\% or more of the brightest objects using the
+difference in flux to be 10,000\% or more of the brightest object using the
 menus. When the objects were found, the ADU counts were comparable, well within
 the same order of magnitude with the ones detected by my software.
 
@@ -55,53 +55,42 @@ software was not able to find the objects on the image for this observation.}
 \end{center}
 \caption{This shows the same display as Fig. \ref{fig:aijimage}, namely of
 {\ross} at 02:04:10 on 31 October 2021 in the \texttt{r} filter using my
-toolset with the first 50 brightest objects highlighted out of a total of 274
-found. Note that only the brightest 52 objects on average across all of the
-images, including \ross, which is labelled \textbf{A}, have currently had
-apertures optimised, these 52 objects are labelled \textbf{A} to \textbf{Z}
-and then \textbf{A1} to \textbf{Z1}, lower case labels show objects not
-specifically identified.}
-\protect\label{fig:myimage}
+toolset with the first 10 brightest objects highlighted out of a total of 274
+found. Labels are assigned from \textbf{A} through to \textbf{Z} and then
+\textbf{A1} through to \textbf{Z1} etc in order of decreasing brightness on
+average throughout the images.} \protect\label{fig:myimage}
 \end{figure}
 
 It proved that most of the objects found in the GAIA database and other sources
-and with details copied across, nearly 60\%, had average of less than 1000 ADU
+and with details copied across, nearly 60\%, had average of less than 1,000 ADU
 counts above the sky level of $50 \pm 10$ ADU counts. Only 0.5\% of the objects,
-approximately 9 in total for the best {\ross} images, slightly more for \prox,
-slightly less for \bstar, had ADU counts of 100 times the sky level and of those
-few frames had all of these due to differing areas of the sky being covered by
-different frames.
+always including the target object which was always well above 200,000 counts
+for all but the poorest images, approximately 9 in total for the best {\ross}
+images, slightly more for \prox, slightly less for \bstar, had ADU counts of 100
+times the sky level and of those few frames had all of these due to differing
+areas of the sky being covered by different frames.
 
 \subsection{Master calibration files}
 \protect\label{section:masterbiasflat}
 
 In order to address the matters such as those referred to in Section
 \ref{section:mattersaddressed} above, a study was made of the master bias and
-flat files supplied.
+flat files supplied. The main problem proved to be that the number of daily bias
+or flat files going to make up the master files is not consistent, month by
+month. Each master file is made up entirely from the daily files for the
+calendar month concerned, which may vary considerably in number and criteria for selection.
 
-The following problems were observed with these files.
+Also some of the statistics for selection of daily files, notably the flat
+files, are incorrectly calculated and/or stated.The master bias
+files, as constructed, include extreme values for some pixels which cause
+values for the image files to go negative when the bias file is subtracted as
+no account is taken of noisy or unreliable pixels.
 
-\begin{enumerate}
-  \item The number of daily bias or flat files going to make up the master files
-  is not consistent, month by month. Each master file is made up entirely from
-  the daily files for the calendar month concerned, which may vary considerably
-  in number and criteria for selection.
-  \item Some of the criteria for selection of the files, particularly the flat
-  files, are unusual and unexplained.\footnote{The selection of the daily flat
-  files is restricted to those for which the skewness is negative and the
-  kurtosis is less than 7.}
-  \item Some of the statistics for selection of daily files, notably the flat
-  files, are incorrectly calculated and/or stated.\footnote{It did not seem a
-  productive use of time to reproduce the programming error and work out the actual but incorrect
-  set of daily flat files which went to make up the master flat files.}
-  \item The master bias files, as constructed, include extreme values for
-  some pixels which cause values for the image files to go negative when the
-  bias file is subtracted. No account is taken of noisy or unreliable pixels.
-  \item The daily flat files consist of sets of 3 in decreasing light and the
-  median value is taken, the result being then normalised. This causes the
-  benefit of the brighter flat files, with their better signal to noise ratio,
-  to be ignored in addition to the other ones.
-\end{enumerate}
+I also disagree with the method of calculating the master flat files, this is
+because the daily flat files consist of sets of 3 in decreasing light and the
+median value is taken, the result being then normalised. This causes the
+benefit of the brighter flat files, with their better signal to noise ratio,
+to be ignored in addition to the other ones.
 
 % \begin{figure}[!htbp]
 % \begin{center}
@@ -112,10 +101,7 @@ The following problems were observed with these files.
 % observed, until March 2020.}
 % \protect\label{fig:mastmeanbias}
 % \end{figure}
-\clearpage
-
-Having considered and tried to use the supplied master bias and flat files, I
-decided to construct alternative ones from the daily bias and flat files
+I therefore decided to construct alternative ones from the daily bias and flat files
 provided.
 
 A key element in this was to construct the files using a rolling ``window'' of
@@ -152,29 +138,14 @@ recently-published \citet{maslennikova20}. Pixels are described as
 \textbf{Inverse} according to the responses. The pixels on the ROSS2 telescope
 CCD do not fit neatly into these brackets, apart from the \textbf{Normal} ones.}
 
-For the purposes of this study, it was clear that the pixels could be described
-as:
-\begin{description}
-\item[Normal] pixels are those which are clearly well-behaved with a linear
-response within 10\% of saturation.
-\item[Consistently high] pixels are those which whose count never falls below a
-value significantly higher than bulk of the pixels. These are often found in
-whole sections of a column on an array.
-\item[Noisy] pixels are closest to \textbf{Dead} pixels as defined in
-\citet{maslennikova20}. Included are those with consistent high levels of noise,
-with the standard deviation on the bias level over 5 times the standard
-deviation.
-\item[Bad] pixels are ones which give random readings, usually very low ones.
-\end{description}
+For the purposes of this study, it was clear that most of the pixels could be
+described as acceptable with various degrees of noise, some extremely noisy.
+There were a few, of the order of 25 pixels spread over the used area of the
+array, which could be described as bad, in that no reliable result could ever be
+obtained.
 
-In addition, all of the pixels, to a greater or lesser extent, can give random
-very high readings which stand out from the neighbouring pixels. These might
-perhaps be due to cosmics in some cases, or because on resetting the CCD those
-pixels are not reset. Some are random much more often than others and these
-correspond to the \textbf{noisy} pixels.
-
-There are very few examples, in the order of 25 pixels spread over the used area
-of the array, which qualify as \textbf{bad}.
+There were various examples of cosmics or other phenomena accepting individual
+pixels randomly. In only rare cases would this contaminate the analysis.
 
 It is straightforward to interpolate over the relevant pixels. There are a few
 places where there are strings of adjacent noisy or consistently high pixels,
@@ -192,21 +163,11 @@ each individual pixel, so each master bias and flat file consists of two planes,
 one giving values for each pixel and the second giving the standard deviations.
 These are combined where appropriate using the rules for combination of errors.
 
-I made an extensive study of the linearity using the daily flat files; it would 
-appear than the performance is linear up to 62,000 counts per pixel out of a
-possible 65,536. I constructed the master flat files using daily files with
-pixels between a range of 5,000 and 61,000 to be clear of this linearity
-cut-off.
-None of the image files, other than ones contaminated by cosmics and similar,
-had pixel values close to 60,000. I did not use the skewness or kurtosis
-measurements used in the construction of the original master flat files as this
-did not seem to have any benefit\footnote{Even if they were correctly
-calculated.}. I then subtracted from the selected daily flat files the
-newly-constructed master bias file centred on the relevant date and normalised
-the result.
-I then combined the results into a master flat file for the relevant date using
-a weighted geometric mean, the weights being inversely proportional to the
-standard deviations.
+I made a study of the linearity using the daily flat files and found that the
+CCD was could be regarded as linear if flat files were restricted to those
+having ADU counts between 5,000 and 62,000. This issue must be returned to for
+the observation files themselves, as most of the objects have ADU counts much
+lower than 5,000.
 
 This resulted in a much more satisfactory set of master bias and flat files and
 it was possible to much more confident of the uncertainty of values on a
@@ -222,10 +183,17 @@ overall standard deviation for the ADU count for the relevant object.
 \subsection{Finding and identifying objects}
 \protect\label{section:findingidentify}
 
-Most of the objects in the neighbourhood of the target {\rdwarf} objects were
-identified using GAIA DR3. Where alternative shorter names than GAIA DR3 nnnnnnn
-were found, this was used in preference. Bearing in mind the resolution of the
-{\rem} telescope of around 0.6 arcsecond, objects closer together than this
+I tried various strategies for locating object images in the frames. First I
+looked for peaks in the frames, but due to the low ADU count from most of the
+objects, it was hard to do this reliably without being confused by spurious
+peaks on the CCD.
+
+What proved more successful was to list and retain a database of possible
+objects in the neighbourhood of the target objects using GAIA DR3 of magnitude
+up to 19, which was the limit which the {\rem} telescope could detect.
+Where alternative shorter names than ``GAIA DR3 nnnnnnn'' were available from SIMBAD
+and other sources, then these were used in preference. Bearing in mind the
+resolution of the {\rem} telescope of around 0.6 arcsecond, objects closer together than this
 distance were eliminated, as were objects with irregular profiles and one marked
 as variable.
 
@@ -233,7 +201,10 @@ The magnitudes in various bands are all noted in the database records, but these
 were mainly used as a guideline where there was ambiguity in distinguishing
 close but not overlapping objects. Aperture sizes were calculated by fitting a
 Gaussian to approximate the PSF and taking the mean over the dataset of
-acceptable images. This works better with some frames, such as in Fig.
+acceptable images.\footnote{Other profiles, notably Lorentz, were tried but
+this, although in some cases fitting rather better, made so negligible a
+difference overall that it did not seem worth pursuing.} This works better with
+some frames, such as in Fig.
 \ref{fig:goodfit}, then others, such as Fig. \ref{fig:badfit}.
 
 \begin{figure}[!htbp]
@@ -268,7 +239,7 @@ There remains considerable work in finalising the optimal aperture sizes for
 each objects, particularly with {\prox} and {\bstar}. It may be necessary to
 calculate them individually for each frame, especially for the fainter objects.
 
-The best frames contain up to 200 possible reference stars for the best
+The best frames contain over 200 possible reference stars for the best
 examples, more for {\prox} and less for {\bstar}. Average frames contain up to
 30 or so. Any with less than 30 are rejected as too poor.\footnote{This figure
 is subject to amendment, currently the rejection is binary, but there is
@@ -308,6 +279,11 @@ reference stars were available on a particular frame. However, as the targets
 are very much brighter, by a factor of 100 or more, than the majority of the
 reference stars, this linear regression technique involves a considerable
 extrapolation to arrive at a calibrated ADU count for the targets.
+
+Further, the ADU counts for the less bright objects are well below the lower
+limit of linearity of the CCD of 5,000 mentioned for the flat files in Section
+\ref{section:findingidentify} and this therefore needs to be returned to, in
+order to improve the accuracy.
 
 \subsection{Results for \ross}
 \protect\label{section:resultsross}
@@ -374,7 +350,10 @@ detail.
 
 Concerns about the overall swings are alleviated somewhat, when it seen that
 similar swings are observable in observations of {\ross} from other sources, as
-shown in Fig. \ref{fig:allsourcelcurve}
+shown in Fig. \ref{fig:allsourcelcurve}. However the other sources show an
+overall much higher bunching around the mean.
+
+Further work to improve the calculations of the flux is clearly necessary.
 
 \begin{figure}[!htbp]
 \begin{center}

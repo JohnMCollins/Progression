@@ -15,10 +15,15 @@ I see the following as necessary.
   them. Where they land on an object, it would be better to interpolate using
   any fitted Gaussian profile.
   \item Optimise as many as possible of the reference object apertures and
-  identify irregularly shaped and variable objects.
+  identify irregularly shaped and variable objects and ones flagged in GAIA as
+  having poor RUWE and LUWE.
   \item Look at other filters, such as the \gfilter, possibly the other filters,
   although the number of available reference objects looks poor and the
   {\zfilter} images all have artefacts in them.
+  \item Refine the linearity correction, the restriction to above 5,000 ADU
+  counts (and less importantly below 62,000 counts) is acceptable for selection
+  of daily flat fields, but for the bulk of the objects on the frames, needs
+  to be properly catered for.
   \item Repeat the work done for {\ross} with {\prox} and {\bstar} and consider
   periodograms for them. In particular, obtain a rotation period for \bstar,
   for which there are a variety of values in the literature.

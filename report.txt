@@ -5,7 +5,7 @@ University of Hertfordshire,
 College Lane, Hatfield, Herts,
 AL10 9AB, UK
 j.m.collins@herts.ac.uk
-11th March 2023
+13th March 2023
 
 Abstract
 This report is submitted to the University of Hertfordshire with a view to progression to the final stage of
@@ -115,6 +115,8 @@ Its strong activity is noted in Wargelin et al. (2008). As discussed in the draf
 there is a wide variation in some of the parameters for Ross 154, in particular the value of v sin i, the radius
 and the rotation period. It became clear that an early benchmark of the work on the REM data would be
 clarification of the rotation period.
+As all the target objects are amongst the closest objects outside the solar system, they all have particularly
+large proper motions. Care must be taken to track the proper motions of the targets and any adjacent objects.
 
 1.3
 
@@ -165,47 +167,11 @@ Barnard’s Star exist and this is a clear target for further study, however it 
 observations of Barnard’s Star, as noted in Section 1.3. Hopefully it may be possible to obtain information about
 activity cycles and add to the correlation of this with the rotation period.
 
-1.5
-
-Proper Motions and caveats
-
-As all the target objects are amongst the closest objects outside the solar system, they all have particularly large
-proper motions. Care must be taken to track the proper motions of the targets and any adjacent objects.
-The resolution of the ROSS2 camera is such that successive pixels are approximately 0.6 arc-seconds apart
-(about 4.9 for Declination values, 6.9 for Right Ascension values but that varies a little with declination). This
-means that proper motions of less than 20 milliarcseconds per year may be safely disregarded which eliminates
-all but a handful of objects1 in the vicinity of the targets from a need to track proper motions for the bulk of other
-objects.
-In Fig. 3, Fig. 4 and Fig. 5 are illustrated the proper motions Proxima Centauri, Barnard’s Star and Ross 154
-respectively against the immediate backgrounds.
-
-1 18 objects altogether, 10 in the vicinity of Proxima Centauri, 1 in the vicinity of Barnard’s Star and 7 in the vicinity of Ross 154.
-
 3
 
 Figure 2: This figure shows the distribution of observations of the three M-dwarf targets to date, with Proxima Centauri observations in the top pane, Barnard’s Star in the middle pane and Ross 154 in the bottom pane.
 
 4
-
-Figure 3: This figure tracks the proper motion of Proxima Centauri against the immediate background stars, showing start and end dates of the observations at the time of writing, the gaps showing the periods where observations
-were not taken. The relative sizes of the objects, including Proxima Centauri, are based on the selected apertures
-determined from subsequent processing.
-
-Figure 4: This figure tracks the proper motion of Barnard’s Star against the immediate background stars, showing
-start and end dates of the observations at the time of writing, the gaps showing the periods where observations
-were not taken. The proper motion of Barnard’s Star is extremely large and the scale is not the same as in Fig. 3
-or Fig. 5 in consequence. Proper motion on Declination is so large that the scale is reduced by a factor of 10 from
-that in Right Ascension. Again relative sizes of the objects reflect those of the objects in the images, including
-Barnard’s Star.
-
-5
-
-Figure 5: This figure tracks the proper motion of Ross 154 against the immediate background stars, showing start
-and end dates of the observations at the time of writing, the gaps showing the periods where observations were not
-taken. The scale is the same as in Fig. 3 (but not the same as in Fig. 4). Again relative sizes of the objects reflect
-those of the objects in the images.
-
-6
 
 2
 
@@ -257,39 +223,39 @@ master bias subtracted.
 
 Some example image displays
 
-In Fig. 6 is illustrated a sample image from one of the observations of Barnard’s Star using the g filter and using
-the supplied master bias and flat files. In Fig. 7 is shown a similar observation from March 2020. Note how the
+In Fig. 3 is illustrated a sample image from one of the observations of Barnard’s Star using the g filter and using
+the supplied master bias and flat files. In Fig. 4 is shown a similar observation from March 2020. Note how the
 second image is rotated clockwise by 90◦ from the previous image and includes a different set of other objects for
 potential reference stars.
 In nearly every case there are 4 images taken, one with each of the 4 visible light filters (in addition to the
-simultaneous REMIR observations) and in Fig. 6 is illustrated a set of observations of Proxima Centauri taken on
-the same date, 17 September 2018, as the observation of Barnard’s Star in Fig. 6. For comparison, in Fig. 9 is
+simultaneous REMIR observations) and in Fig. 3 is illustrated a set of observations of Proxima Centauri taken on
+the same date, 17 September 2018, as the observation of Barnard’s Star in Fig. 3. For comparison, in Fig. 6 is
 shown a set of observations taken on 9 March 2020.
 
-7
+5
 
-Figure 6: This is an observation of Barnard’s Star taken with the g filter on 17 September 2018 at 02:58:52 UTC
+Figure 3: This is an observation of Barnard’s Star taken with the g filter on 17 September 2018 at 02:58:52 UTC
 after processing using the master bias and flat files for September 2018. The brightest object, marked A and
 marked in green is Barnard’s Star, whilst the next 9 brightest objects are marked in yellow and B, C, etc. in
 decreasing order of brightness.
 
-Figure 7: This is an observation of Barnard’s Star taken with the g filter on 7 March 2020 at 09:07:23 UTC after
+Figure 4: This is an observation of Barnard’s Star taken with the g filter on 7 March 2020 at 09:07:23 UTC after
 processing using the master bias and flat files for March 2020. The brightest object, marked A and marked in
 green is Barnard’s Star, whilst the next 9 brightest objects are marked in yellow and B, C, etc. in decreasing order
 of brightness. It may be noted that some of the objects, at this stage, prior to more detailed analysis of the other
-objects, are not marked consistently with those in Fig. 6.
+objects, are not marked consistently with those in Fig. 3.
 
-8
+6
 
-Figure 8: This is all 4 observations of Proxima Centauri taken with the visible light filters on 17 September 2018 at
+Figure 5: This is all 4 observations of Proxima Centauri taken with the visible light filters on 17 September 2018 at
 02:12:40 UTC after processing using appropriate master bias and flat files for September 2018. They are arranged
 in the order and orientation in which they are taken from the CCD. The divisions on each image are pixel numbers.
 
-Figure 9: This is all 4 observations of Proxima Centauri taken with the visible light filters on 9 March 2020 at
+Figure 6: This is all 4 observations of Proxima Centauri taken with the visible light filters on 9 March 2020 at
 08:56:14 UTC after processing using appropriate master bias and flat files for March 2020. They are arranged in
 the order and orientation in which they are taken from the CCD. The divisions on each image are pixel numbers.
 
-9
+7
 
 2.3
 
@@ -329,60 +295,53 @@ toolset created transparently fetches other FITS files as required.
 Display and analysis tools
 
 The contrast on the images is poor and I was unable to obtain any useful photometry from standard image analysis
-software. I worked mainly with AstroImageJ from which Fig. 10 is derived. The corresponding image from the
-software I developed is in Fig. 11.2
-It proved that most of the objects found in the GAIA database and other sources and with details copied across,
-nearly 60%, had average of less than 1000 ADU counts above the sky level of 50 ± 10 ADU counts. Only 0.5%
-of the objects, approximately 9 in total for the best Ross 154 images, slightly more for Proxima Centauri, slightly
-less for Barnard’s Star, had ADU counts of 100 times the sky level and of those few frames had all of these due to
-differing areas of the sky being covered by different frames.
+software. I worked mainly with AstroImageJ from which Fig. 7 is derived. The corresponding image from the
+software I developed is in Fig. 8.1
 The only way it appeared possible to proceed was to write my own display and analysis software, from which
 the figures shown herein were derived. This finely divides ADU counts into 16 different greyscales (with provision
 to increase this to up to 32 greyscales). Pixels are assigned a given greyscale based upon whether they fall within
 one of a set of percentiles.
+With only a handful of the images could I make AstroImageJ find the target and after that only a handful of
+other objects, those having set the maximum difference in flux to be 10,000% or more of the brightest object
+using the menus. When the objects were found, the ADU counts were comparable, well within the same order of
+magnitude with the ones detected by my software.
+It proved that most of the objects found in the GAIA database and other sources and with details copied across,
+nearly 60%, had average of less than 1,000 ADU counts above the sky level of 50 ± 10 ADU counts. Only 0.5% of
+the objects, always including the target object which was always well above 200,000 counts for all but the poorest
+images, approximately 9 in total for the best Ross 154 images, slightly more for Proxima Centauri, slightly less
+for Barnard’s Star, had ADU counts of 100 times the sky level and of those few frames had all of these due to
+differing areas of the sky being covered by different frames.
 
 3.2
 
 Master calibration files
 
 In order to address the matters such as those referred to in Section 2.3 above, a study was made of the master bias
-and flat files supplied.
-The following problems were observed with these files.
-1. The number of daily bias or flat files going to make up the master files is not consistent, month by month.
-Each master file is made up entirely from the daily files for the calendar month concerned, which may vary
-considerably in number and criteria for selection.
-2. Some of the criteria for selection of the files, particularly the flat files, are unusual and unexplained.3
-3. Some of the statistics for selection of daily files, notably the flat files, are incorrectly calculated and/or
-stated.4
-2 I also tried AperturePT before it ceased to be usable on the Linux platform I was using, DS9 and the GAIA tool.
-3 The selection of the daily flat files is restricted to those for which the skewness is negative and the kurtosis is less than 7.
-4 It did not seem a productive use of time to reproduce the programming error and work out the actual but incorrect set of daily flat files
-which went to make up the master flat files.
+and flat files supplied. The main problem proved to be that the number of daily bias or flat files going to make up
+the master files is not consistent, month by month. Each master file is made up entirely from the daily files for the
+calendar month concerned, which may vary considerably in number and criteria for selection.
+Also some of the statistics for selection of daily files, notably the flat files, are incorrectly calculated and/or
+stated.The master bias files, as constructed, include extreme values for some pixels which cause values for the
+image files to go negative when the bias file is subtracted as no account is taken of noisy or unreliable pixels.
+1 I also tried AperturePT before it ceased to be usable on the Linux platform I was using, DS9 and the GAIA tool.
 
-10
+8
 
-Figure 10: This shows the display in AstroImageJ of the observation of Ross 154 at 02:04:10 on 31 October 2021
+Figure 7: This shows the display in AstroImageJ of the observation of Ross 154 at 02:04:10 on 31 October 2021
 in the r filter. The three brightest objects together with the target gave been highlighted. However the software
 was not able to find the objects on the image for this observation.
 
-Figure 11: This shows the same display as Fig. 10, namely of Ross 154 at 02:04:10 on 31 October 2021 in the r
-filter using my toolset with the first 50 brightest objects highlighted out of a total of 274 found. Note that only the
-brightest 52 objects on average across all of the images, including Ross 154, which is labelled A, have currently
-had apertures optimised, these 52 objects are labelled A to Z and then A1 to Z1, lower case labels show objects
-not specifically identified.
+Figure 8: This shows the same display as Fig. 7, namely of Ross 154 at 02:04:10 on 31 October 2021 in the r filter
+using my toolset with the first 10 brightest objects highlighted out of a total of 274 found. Labels are assigned
+from A through to Z and then A1 through to Z1 etc in order of decreasing brightness on average throughout the
+images.
 
-11
+9
 
-4. The master bias files, as constructed, include extreme values for some pixels which cause values for the
-image files to go negative when the bias file is subtracted. No account is taken of noisy or unreliable pixels.
-5. The daily flat files consist of sets of 3 in decreasing light and the median value is taken, the result being
-then normalised. This causes the benefit of the brighter flat files, with their better signal to noise ratio, to be
-ignored in addition to the other ones.
-
-12
-
-Having considered and tried to use the supplied master bias and flat files, I decided to construct alternative
-ones from the daily bias and flat files provided.
+I also disagree with the method of calculating the master flat files, this is because the daily flat files consist
+of sets of 3 in decreasing light and the median value is taken, the result being then normalised. This causes the
+benefit of the brighter flat files, with their better signal to noise ratio, to be ignored in addition to the other ones.
+I therefore decided to construct alternative ones from the daily bias and flat files provided.
 A key element in this was to construct the files using a rolling “window” of the same number of daily files
 centred on the relevant date. This made a substantial difference to the resulting master files, all of the variations
 from month to month were eliminated and the resulting files were very similar.
@@ -393,18 +352,11 @@ Defective or unreliable pixels
 I undertook a study of all the files, flat files, bias files and observation files to determine whether any pixels in
 the CCD array could be counted as “bad” or unresponsive, had particularly high mean values or large standard
 deviation. The literature varies somewhat on how bad pixels are defined or determined.
-For the purposes of this study, it was clear that the pixels could be described as:
-Normal pixels are those which are clearly well-behaved with a linear response within 10% of saturation.
-Consistently high pixels are those which whose count never falls below a value significantly higher than bulk of
-the pixels. These are often found in whole sections of a column on an array.
-Noisy pixels are closest to Dead pixels as defined in Maslennikova et al. (2020). Included are those with consistent high levels of noise, with the standard deviation on the bias level over 5 times the standard deviation.
-Bad pixels are ones which give random readings, usually very low ones.
-In addition, all of the pixels, to a greater or lesser extent, can give random very high readings which stand out
-from the neighbouring pixels. These might perhaps be due to cosmics in some cases, or because on resetting the
-CCD those pixels are not reset. Some are random much more often than others and these correspond to the noisy
-pixels.
-There are very few examples, in the order of 25 pixels spread over the used area of the array, which qualify as
-bad.
+For the purposes of this study, it was clear that most of the pixels could be described as acceptable with various
+degrees of noise, some extremely noisy. There were a few, of the order of 25 pixels spread over the used area of
+the array, which could be described as bad, in that no reliable result could ever be obtained.
+There were various examples of cosmics or other phenomena accepting individual pixels randomly. In only
+rare cases would this contaminate the analysis.
 It is straightforward to interpolate over the relevant pixels. There are a few places where there are strings of
 adjacent noisy or consistently high pixels, but these almost entirely affect columns in the CCD, the worst example
 can be found in the area used for the g filter, seemingly as the CCD is read out by columns, so adjacent pixels on
@@ -418,14 +370,9 @@ new master bias files using a “rolling window” centred on the date required.
 each individual pixel, so each master bias and flat file consists of two planes, one giving values for each pixel and
 the second giving the standard deviations. These are combined where appropriate using the rules for combination
 of errors.
-I made an extensive study of the linearity using the daily flat files; it would appear than the performance is
-linear up to 62,000 counts per pixel out of a possible 65,536. I constructed the master flat files using daily files
-with pixels between a range of 5,000 and 61,000 to be clear of this linearity cut-off. None of the image files, other
-than ones contaminated by cosmics and similar, had pixel values close to 60,000. I did not use the skewness or
-kurtosis measurements used in the construction of the original master flat files as this did not seem to have any
-benefit5 . I then subtracted from the selected daily flat files the newly-constructed master bias file centred on the
-relevant date and normalised the result. I then combined the results into a master flat file for the relevant date using
-a weighted geometric mean, the weights being inversely proportional to the standard deviations.
+I made a study of the linearity using the daily flat files and found that the CCD was could be regarded as linear
+if flat files were restricted to those having ADU counts between 5,000 and 62,000. This issue must be returned to
+for the observation files themselves, as most of the objects have ADU counts much lower than 5,000.
 This resulted in a much more satisfactory set of master bias and flat files and it was possible to much more
 confident of the uncertainty of values on a per-pixel basis. The combination of the flat files using a weighted
 geometric mean, included many more of the brighter files, with their higher SNR, giving them priority over the
@@ -438,33 +385,40 @@ relevant object.
 
 Finding and identifying objects
 
-Most of the objects in the neighbourhood of the target M-dwarf objects were identified using GAIA DR3. Where
-alternative shorter names than GAIA DR3 nnnnnnn were found, this was used in preference. Bearing in mind the
-resolution of the REM telescope of around 0.6 arcsecond, objects closer together than this distance were eliminated,
-as were objects with irregular profiles and one marked as variable.
-5 Even if they were correctly calculated.
-
-13
-
-The magnitudes in various bands are all noted in the database records, but these were mainly used as a guideline
+I tried various strategies for locating object images in the frames. First I looked for peaks in the frames, but due to
+the low ADU count from most of the objects, it was hard to do this reliably without being confused by spurious
+peaks on the CCD.
+What proved more successful was to list and retain a database of possible objects in the neighbourhood of the
+target objects using GAIA DR3 of magnitude up to 19, which was the limit which the REM telescope could detect.
+Where alternative shorter names than “GAIA DR3 nnnnnnn” were available from SIMBAD and other sources,
+then these were used in preference. Bearing in mind the resolution of the REM telescope of around 0.6 arcsecond,
+objects closer together than this distance were eliminated, as were objects with irregular profiles and one marked
+as variable.
+The magnitudes in various bands are all noted in the database records, but these were mainly used as a guideline
 where there was ambiguity in distinguishing close but not overlapping objects. Aperture sizes were calculated by
-fitting a Gaussian to approximate the PSF and taking the mean over the dataset of acceptable images. This works
-better with some frames, such as in Fig. 12, then others, such as Fig. 13.
-
-Figure 12: This shows the profile and the fitted Gaussian for the observation of Ross 154 taken on 26 April 2019
-at 08:54:03 with the r filter. The right hand image shows the differences between this and the actual flux, positive
-values in green and negative in red. Air mass for this was 1.0085.
-
-Figure 13: This shows the profile and the fitted Gaussian for the observation of Ross 154 taken on 16 September
-2019 at 03:39:47 with the r filter. The right hand image shows the differences between this and the actual flux,
-positive values in green and negative in red. Air mass for this was 1.5665.
+fitting a Gaussian to approximate the PSF and taking the mean over the dataset of acceptable images.2 This works
+better with some frames, such as in Fig. 9, then others, such as Fig. 10.
 There remains considerable work in finalising the optimal aperture sizes for each objects, particularly with
 Proxima Centauri and Barnard’s Star. It may be necessary to calculate them individually for each frame, especially
-14
+for the fainter objects.
+2 Other profiles, notably Lorentz, were tried but this, although in some cases fitting rather better, made so negligible a difference overall
 
-for the fainter objects.
-The best frames contain up to 200 possible reference stars for the best examples, more for Proxima Centauri
-and less for Barnard’s Star. Average frames contain up to 30 or so. Any with less than 30 are rejected as too poor.6
+that it did not seem worth pursuing.
+
+10
+
+Figure 9: This shows the profile and the fitted Gaussian for the observation of Ross 154 taken on 26 April 2019 at
+08:54:03 with the r filter. The right hand image shows the differences between this and the actual flux, positive
+values in green and negative in red. Air mass for this was 1.0085.
+
+Figure 10: This shows the profile and the fitted Gaussian for the observation of Ross 154 taken on 16 September
+2019 at 03:39:47 with the r filter. The right hand image shows the differences between this and the actual flux,
+positive values in green and negative in red. Air mass for this was 1.5665.
+
+11
+
+The best frames contain over 200 possible reference stars for the best examples, more for Proxima Centauri
+and less for Barnard’s Star. Average frames contain up to 30 or so. Any with less than 30 are rejected as too poor.3
 
 3.4
 
@@ -489,6 +443,9 @@ This technique proved very successful, in most cases the correlation of the line
 95%, and proved insensitive to what set of reference stars were available on a particular frame. However, as the
 targets are very much brighter, by a factor of 100 or more, than the majority of the reference stars, this linear
 regression technique involves a considerable extrapolation to arrive at a calibrated ADU count for the targets.
+Further, the ADU counts for the less bright objects are well below the lower limit of linearity of the CCD of
+5,000 mentioned for the flat files in Section 3.3 and this therefore needs to be returned to, in order to improve the
+accuracy.
 
 3.5
 
@@ -508,47 +465,49 @@ Problems with light curves for Ross 154
 
 There appears to be a problem with many of the observations for Ross 154, in that there are huge swings seem to
 be observable in the calibrated flux within the course of a few minutes. This is illustrated in the light curve shown
-in the draft paper reproduced in Fig. 14. An example of the wildest set of swings is seen in the September 2019
+in the draft paper reproduced in Fig. 11. An example of the wildest set of swings is seen in the September 2019
 period, and a particularly wild set of readings was observed on 13 September 2019. The total flux for Ross 154
-and the two next brightest objects for that day is shown in Fig. 15
+and the two next brightest objects for that day is shown in Fig. 12
 Observable is the huge jump over the course of about 2 minutes between the fifth and sixth point on this figure.
 The flux for Ross 154 drops by a quarter in this time.
-Display of the images for the fifth and sixth point on this figure is given in Fig. 16 and Fig. 17 respectively.
+Display of the images for the fifth and sixth point on this figure is given in Fig. 13 and Fig. 14 respectively.
 It may be seen that the sky level has increased by a factor of 3 whilst the maximum flux has reduced by a about a
 third. This causes the contrast to be much poorer, with much less detail.
-Concerns about the overall swings are alleviated somewhat, when it seen that similar swings are observable in
-observations of Ross 154 from other sources, as shown in Fig. 18
+Concerns about the overall swings are alleviated somewhat, when it seen that similar swings are observable
+in observations of Ross 154 from other sources, as shown in Fig. 15. However the other sources show an overall
+much higher bunching around the mean.
+Further work to improve the calculations of the flux is clearly necessary.
 
-6 This figure is subject to amendment, currently the rejection is binary, but there is provision for a “quality” marker enabling frames to be
+3 This figure is subject to amendment, currently the rejection is binary, but there is provision for a “quality” marker enabling frames to be
 partially used where appropriate.
 
-15
+12
 
-Figure 14: This shows the total flux after calibration from Ross 154 found in all acceptable images in REM
+Figure 11: This shows the total flux after calibration from Ross 154 found in all acceptable images in REM
 observations, normalised so that the mean is 1.0. There was a change in configuration in late March 2019, indicated
 by the sold vertical green line, but this occurred 595 days from the start and thus does not account for any of the
 shape of the plot shown. The dotted vertical lines indicate the start of the years 2018 through to 2022.
 
-Figure 15: This shows the total flux, with no attempt to calibrate, for Ross 154 and the next two brightest objects
+Figure 12: This shows the total flux, with no attempt to calibrate, for Ross 154 and the next two brightest objects
 visible on 13 September 2019. In this figure A represents Ross 154, whilst F and D represent TIC 224752356 and
 Gaia DR3 4075153519816173184 respectively.
 
-16
+13
 
-Figure 16: This shows the image for Ross 154 on 13 Sept 2019 at 02:51:43 with the 6 strongest sources identified
+Figure 13: This shows the image for Ross 154 on 13 Sept 2019 at 02:51:43 with the 6 strongest sources identified
 and labelled,
 
-Figure 17: This shows the image for Ross 154 on 13 Sept 2019 at 02:53:51 with the 6 strongest sources identified
+Figure 14: This shows the image for Ross 154 on 13 Sept 2019 at 02:53:51 with the 6 strongest sources identified
 and labelled,
 
-17
+14
 
-Figure 18: This figure shows combined data from ASAS, K2, MEarth and REM, specifically for the r filter, as
+Figure 15: This figure shows combined data from ASAS, K2, MEarth and REM, specifically for the r filter, as
 blue, green, red and black respectively with the intensity in each normalised to a mean of 1, i.e. on the same scale,
 and showing the dates on which each was taken. The REM light curve is after calibration by comparison with other
 objects in each frame.
 
-18
+15
 
 4
 
@@ -562,13 +521,16 @@ I see the following as necessary.
 improving the interpolation over them. Where they land on an object, it would be better to interpolate using
 any fitted Gaussian profile.
 2. Optimise as many as possible of the reference object apertures and identify irregularly shaped and variable
-objects.
+objects and ones flagged in GAIA as having poor RUWE and LUWE.
 3. Look at other filters, such as the g filter, possibly the other filters, although the number of available reference
 objects looks poor and the z filter images all have artefacts in them.
-4. Repeat the work done for Ross 154 with Proxima Centauri and Barnard’s Star and consider periodograms
+4. Refine the linearity correction, the restriction to above 5,000 ADU counts (and less importantly below
+62,000 counts) is acceptable for selection of daily flat fields, but for the bulk of the objects on the frames,
+needs to be properly catered for.
+5. Repeat the work done for Ross 154 with Proxima Centauri and Barnard’s Star and consider periodograms
 for them. In particular, obtain a rotation period for Barnard’s Star, for which there are a variety of values in
 the literature.
-5. Extend the work done to date to the REMIR near infrared images.
+6. Extend the work done to date to the REMIR near infrared images.
 I intend to spend the period until the end of the calendar year focusing on steps 1 and 2, before moving on
 to 3, to complete the analysis of Ross 154 and making the techniques more automatic, particularly in the area of
 fitting of reference objects and optimising the apertures, which relies currently on too much manual intervention
@@ -588,16 +550,15 @@ L. Piersanti, A. Tornambè, & O. Straniero, 173–180
 [7] Giannini, T., Vitali, F., Lorenzetti, D., Antoniucci, S., & Licchelli, D. 2018, The Astronomer’s Telegram,
 11811, 1
 [8] Magaudda, E., Stelzer, B., & Raetz, S. 2022, Astronomische Nachrichten, 343, easna.20220049
-[9] Maslennikova, N. A., Shatsky, N. I., & Tatarnikov, A. M. 2020, arXiv e-prints, arXiv:2012.12915
-[10] Mohanty, S., & Basri, G. 2003, ApJ, 583, 451
-[11] Suárez Mascareño, A., Rebolo, R., González Hernández, J. I., & Esposito, M. 2015, MNRAS, 452, 2745
-[12] The Red Dots Project. 2020, Red Dots - A search for terrestrial planets around the nearest red dwarfs,
+[9] Mohanty, S., & Basri, G. 2003, ApJ, 583, 451
+[10] Suárez Mascareño, A., Rebolo, R., González Hernández, J. I., & Esposito, M. 2015, MNRAS, 452, 2745
+[11] The Red Dots Project. 2020, Red Dots - A search for terrestrial planets around the nearest red dwarfs,
 https://reddots.space/, Online; accessed 24 March 2020
-[13] Toledo-Padrón, B., González Hernández, J. I., Rodrı́guez-López, C., et al. 2018, arXiv e-prints,
+[12] Toledo-Padrón, B., González Hernández, J. I., Rodrı́guez-López, C., et al. 2018, arXiv e-prints,
 arXiv:1812.06712
-[14] Vida, K., Oláh, K., Kővári, Z., van Driel-Gesztelyi, L., & Moór, A. 2019, arXiv e-prints, arXiv:1907.12580
-[15] Wargelin, B. J., Kashyap, V. L., Drake, J. J., Garcı́a-Alvarez, D., & Ratzlaff, P. W. 2008, ApJ, 676, 610
+[13] Vida, K., Oláh, K., Kővári, Z., van Driel-Gesztelyi, L., & Moór, A. 2019, arXiv e-prints, arXiv:1907.12580
+[14] Wargelin, B. J., Kashyap, V. L., Drake, J. J., Garcı́a-Alvarez, D., & Ratzlaff, P. W. 2008, ApJ, 676, 610
 
-19
+16
 
 
